@@ -237,7 +237,6 @@ body {
       text {
         &.blip-text {
           font-size: 9px;
-          font-style: italic;
           fill: $white;
         }
 
@@ -324,7 +323,7 @@ body {
           .blip-item-description {
             max-height: 0;
             overflow: hidden;
-            width: 300px;
+            width: 400px;
 
             p {
               margin: 0;

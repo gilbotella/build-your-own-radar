@@ -8,9 +8,8 @@ const _ = {
 }
 
 const Radar = function () {
-  var self, quadrants, blipNumber, addingQuadrant, alternatives, currentSheetName
+  var self, quadrants, addingQuadrant, alternatives, currentSheetName
 
-  blipNumber = 0
   addingQuadrant = 0
   quadrants = [
     { order: 'first', startAngle: 90 },
@@ -21,12 +20,6 @@ const Radar = function () {
   alternatives = []
   currentSheetName = ''
   self = {}
-
-  function setNumbers (blips) {
-    blips.forEach(function (blip) {
-      blip.setNumber(++blipNumber)
-    })
-  }
 
   self.addAlternative = function (sheetName) {
     alternatives.push(sheetName)
@@ -49,7 +42,6 @@ const Radar = function () {
       throw new MalformedDataError(ExceptionMessages.TOO_MANY_QUADRANTS)
     }
     quadrants[addingQuadrant].quadrant = quadrant
-    setNumbers(quadrant.blips())
     addingQuadrant++
   }
 

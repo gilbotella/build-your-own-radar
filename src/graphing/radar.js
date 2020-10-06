@@ -105,28 +105,45 @@ const Radar = function (size, radar) {
     })
   }
 
-  function triangle (blip, x, y, order, group) {
-    return group.append('path').attr('d', 'M412.201,311.406c0.021,0,0.042,0,0.063,0c0.067,0,0.135,0,0.201,0c4.052,0,6.106-0.051,8.168-0.102c2.053-0.051,4.115-0.102,8.176-0.102h0.103c6.976-0.183,10.227-5.306,6.306-11.53c-3.988-6.121-4.97-5.407-8.598-11.224c-1.631-3.008-3.872-4.577-6.179-4.577c-2.276,0-4.613,1.528-6.48,4.699c-3.578,6.077-3.26,6.014-7.306,11.723C402.598,306.067,405.426,311.406,412.201,311.406')
-      .attr('transform', 'scale(' + (blip.width / 34) + ') translate(' + (-404 + x * (34 / blip.width) - 17) + ', ' + (-282 + y * (34 / blip.width) - 17) + ')')
+  function updatedentry (blip, x, y, order, group) {
+    return group.append('path')
+      .attr('opacity', '0.5')
+      .attr('d', 'M16.5,1.56c0,0.86,0.7,1.56,1.56,1.56c8.16,0,14.8,6.64,14.8,14.8c0,0.86,0.7,1.56,1.56,1.56c0.86,0,1.56-0.7,1.56-1.56C36,8.04,27.96,0,18.07,0C17.2,0,16.5,0.7,16.5,1.56z')
+      .attr('transform', 'scale(' + (blip.width / 30) + ') translate(' + (x * (30 / blip.width) - 18) + ', ' + (y * (30 / blip.width) - 18) + ')')
       .attr('class', order)
   }
 
-  function triangleLegend (x, y, group) {
-    return group.append('path').attr('d', 'M412.201,311.406c0.021,0,0.042,0,0.063,0c0.067,0,0.135,0,0.201,0c4.052,0,6.106-0.051,8.168-0.102c2.053-0.051,4.115-0.102,8.176-0.102h0.103c6.976-0.183,10.227-5.306,6.306-11.53c-3.988-6.121-4.97-5.407-8.598-11.224c-1.631-3.008-3.872-4.577-6.179-4.577c-2.276,0-4.613,1.528-6.48,4.699c-3.578,6.077-3.26,6.014-7.306,11.723C402.598,306.067,405.426,311.406,412.201,311.406')
-      .attr('transform', 'scale(' + (22 / 64) + ') translate(' + (-404 + x * (64 / 22) - 17) + ', ' + (-282 + y * (64 / 22) - 17) + ')')
+  function updatedentryLegend (x, y, group) {
+    return group.append('path')
+      .attr('d', 'M16.5,1.56c0,0.86,0.7,1.56,1.56,1.56c8.16,0,14.8,6.64,14.8,14.8c0,0.86,0.7,1.56,1.56,1.56c0.86,0,1.56-0.7,1.56-1.56C36,8.04,27.96,0,18.07,0C17.2,0,16.5,0.7,16.5,1.56z')
+      .attr('transform', 'scale(' + (22 / 64) + ') translate(' + (x * (64 / 22) - 18) + ', ' + (y * (64 / 22) - 18) + ')')
   }
 
-  function circle (blip, x, y, order, group) {
+  function newentry (blip, x, y, order, group) {
     return (group || svg).append('path')
-      .attr('d', 'M420.084,282.092c-1.073,0-2.16,0.103-3.243,0.313c-6.912,1.345-13.188,8.587-11.423,16.874c1.732,8.141,8.632,13.711,17.806,13.711c0.025,0,0.052,0,0.074-0.003c0.551-0.025,1.395-0.011,2.225-0.109c4.404-0.534,8.148-2.218,10.069-6.487c1.747-3.886,2.114-7.993,0.913-12.118C434.379,286.944,427.494,282.092,420.084,282.092')
-      .attr('transform', 'scale(' + (blip.width / 34) + ') translate(' + (-404 + x * (34 / blip.width) - 17) + ', ' + (-282 + y * (34 / blip.width) - 17) + ')')
+      .attr('opacity', '0.5')
+      .attr('d', 'M 18 36 C 8.07 36 0 27.93 0 18 S 8.07 0 18 0 c 9.92 0 18 8.07 18 18 S 27.93 36 18 36 Z M 18 3.14 C 9.81 3.14 3.14 9.81 3.14 18 S 9.81 32.86 18 32.86 S 32.86 26.19 32.86 18 S 26.19 3.14 18 3.14 Z')
+      .attr('transform', 'scale(' + (blip.width / 30) + ') translate(' + (x * (30 / blip.width) - 18) + ', ' + (y * (30 / blip.width) - 18) + ')')
       .attr('class', order)
   }
 
-  function circleLegend (x, y, group) {
+  function newentryLegend (x, y, group) {
     return (group || svg).append('path')
-      .attr('d', 'M420.084,282.092c-1.073,0-2.16,0.103-3.243,0.313c-6.912,1.345-13.188,8.587-11.423,16.874c1.732,8.141,8.632,13.711,17.806,13.711c0.025,0,0.052,0,0.074-0.003c0.551-0.025,1.395-0.011,2.225-0.109c4.404-0.534,8.148-2.218,10.069-6.487c1.747-3.886,2.114-7.993,0.913-12.118C434.379,286.944,427.494,282.092,420.084,282.092')
-      .attr('transform', 'scale(' + (22 / 64) + ') translate(' + (-404 + x * (64 / 22) - 17) + ', ' + (-282 + y * (64 / 22) - 17) + ')')
+      .attr('d', 'M 18 36 C 8.07 36 0 27.93 0 18 S 8.07 0 18 0 c 9.92 0 18 8.07 18 18 S 27.93 36 18 36 Z M 18 3.14 C 9.81 3.14 3.14 9.81 3.14 18 S 9.81 32.86 18 32.86 S 32.86 26.19 32.86 18 S 26.19 3.14 18 3.14 Z')
+      .attr('transform', 'scale(' + (22 / 64) + ') translate(' + (x * (64 / 22) - 18) + ', ' + (y * (64 / 22) - 18) + ')')
+  }
+
+  function drawcircleLegend (x, y, group) {
+    return (group || svg).append('circle')
+      .attr('r', '10')
+      .attr('transform', 'scale(' + (22 / 64) + ') translate(' + (x * (64 / 22)) + ', ' + (y * (64 / 22)) + ')')
+  }
+
+  function drawcircle (blip, x, y, order, group) {
+    return (group || svg).append('circle')
+      .attr('r', '15')
+      .attr('transform', 'scale(' + (blip.width / 36) + ') translate(' + (x * (36 / blip.width)) + ', ' + (y * (36 / blip.width)) + ')')
+      .attr('class', order)
   }
 
   function addRing (ring, order) {
@@ -235,14 +252,16 @@ const Radar = function (size, radar) {
     var x = coordinates[0]
     var y = coordinates[1]
 
-    var group = quadrantGroup.append('g').attr('class', 'blip-link').attr('id', 'blip-link-' + blip.number())
+    var group = quadrantGroup.append('g').attr('class', 'blip-link').attr('id', 'blip-link-' + blip.id())
 
-    if (blip.isNew()) {
-      triangle(blip, x, y, order, group)
+    if (blip.type() === 'new') {
+      newentry(blip, x, y, order, group)
+    } else if (blip.type() === 'updated') {
+      updatedentry(blip, x, y, order, group)
     } else {
-      circle(blip, x, y, order, group)
+      /* no circle outside */
     }
-
+    drawcircle(blip, x, y, order, group)
     group.append('text')
       .attr('x', x)
       .attr('y', y + 4)
@@ -250,17 +269,17 @@ const Radar = function (size, radar) {
       // derive font-size from current blip width
       .style('font-size', ((blip.width * 10) / 22) + 'px')
       .attr('text-anchor', 'middle')
-      .text(blip.number())
+      .text(blip.id())
 
     var blipListItem = ringList.append('li')
-    var blipText = blip.number() + '. ' + blip.name() + (blip.topic() ? ('. - ' + blip.topic()) : '')
+    var blipText = blip.id() + '. ' + blip.name() + (blip.topic() ? ('. - ' + blip.topic()) : '')
     blipListItem.append('div')
       .attr('class', 'blip-list-item')
-      .attr('id', 'blip-list-item-' + blip.number())
+      .attr('id', 'blip-list-item-' + blip.id())
       .text(blipText)
 
     var blipItemDescription = blipListItem.append('div')
-      .attr('id', 'blip-description-' + blip.number())
+      .attr('id', 'blip-description-' + blip.id())
       .attr('class', 'blip-item-description')
     if (blip.description()) {
       blipItemDescription.append('p').html(blip.description())
@@ -320,8 +339,9 @@ const Radar = function (size, radar) {
   function drawLegend (order) {
     removeRadarLegend()
 
-    var triangleKey = 'New or moved'
-    var circleKey = 'No change'
+    var newentryKey = 'New'
+    var nochangeKey = 'No change'
+    var updatedKey = 'Updated'
 
     var container = d3.select('svg').append('g')
       .attr('class', 'legend legend' + '-' + order)
@@ -354,23 +374,34 @@ const Radar = function (size, radar) {
       .transition()
       .style('visibility', 'visible')
 
-    triangleLegend(x, y, container)
+    newentryLegend(x, y, container)
+    drawcircleLegend(x, y, container)
 
     container
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 5)
       .attr('font-size', '0.8em')
-      .text(triangleKey)
+      .text(newentryKey)
 
-    circleLegend(x, y + 20, container)
+    updatedentryLegend(x, y + 20, container)
+    drawcircleLegend(x, y + 20, container)
 
     container
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 25)
       .attr('font-size', '0.8em')
-      .text(circleKey)
+      .text(updatedKey)
+
+    drawcircleLegend(x, y + 40, container)
+
+    container
+      .append('text')
+      .attr('x', x + 15)
+      .attr('y', y + 45)
+      .attr('font-size', '0.8em')
+      .text(nochangeKey)
   }
 
   function redrawFullRadar () {
@@ -406,16 +437,16 @@ const Radar = function (size, radar) {
     const { blip, quadrant } = ui.item
     const isQuadrantSelected = d3.select('div.button.' + quadrant.order).classed('selected')
     selectQuadrant.bind({}, quadrant.order, quadrant.startAngle)()
-    const selectedDesc = d3.select('#blip-description-' + blip.number())
+    const selectedDesc = d3.select('#blip-description-' + blip.id())
     d3.select('.blip-item-description.expanded').node() !== selectedDesc.node() &&
         d3.select('.blip-item-description.expanded').classed('expanded', false)
     selectedDesc.classed('expanded', true)
 
     d3.selectAll('g.blip-link').attr('opacity', 0.3)
-    const group = d3.select('#blip-link-' + blip.number())
+    const group = d3.select('#blip-link-' + blip.id())
     group.attr('opacity', 1.0)
     d3.selectAll('.blip-list-item').classed('highlight', false)
-    d3.select('#blip-list-item-' + blip.number()).classed('highlight', true)
+    d3.select('#blip-list-item-' + blip.id()).classed('highlight', true)
     if (isQuadrantSelected) {
       tip.show(blip.name(), group.node())
     } else {

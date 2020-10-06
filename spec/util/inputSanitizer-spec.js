@@ -11,7 +11,7 @@ describe('InputSanitizer', function () {
       description: description,
       ring: '<a href="/asd">Adopt</a>',
       quadrant: '<strong>techniques and tools</strong>',
-      isNew: 'true<br>'
+      type: 'true<br>'
     }
 
     blip = sanitizer.sanitize(rawBlip)
@@ -26,7 +26,7 @@ describe('InputSanitizer', function () {
   })
 
   it('strips out all tags from blip status', function () {
-    expect(blip.isNew).toEqual('true')
+    expect(blip.type).toEqual('true')
   })
 
   it('strips out all tags from blip ring', function () {
@@ -54,10 +54,11 @@ describe('Input Santizer for Protected sheet', function () {
   beforeAll(function () {
     sanitizer = new InputSanitizer()
     header = [
+      'id',
       'name',
       'quadrant',
       'ring',
-      'isNew',
+      'type',
       'description'
     ]
 
@@ -81,7 +82,7 @@ describe('Input Santizer for Protected sheet', function () {
   })
 
   it('strips out all tags from blip status', function () {
-    expect(blip.isNew).toEqual('true')
+    expect(blip.type).toEqual('true')
   })
 
   it('strips out all tags from blip ring', function () {
