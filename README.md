@@ -25,12 +25,12 @@ You need to make your data public in a form we can digest.
 
 Create a Google Sheet. Give it at least the below column headers, and put in the content that you want:
 
-| name          | ring   | quadrant               | type     | description                                             |
+| name          | ring   | quadrant               | type     | highlight | description                                             |
 |---------------|--------|------------------------|----------|---------------------------------------------------------|
-| Composer      | adopt  | tools                  | new      | Although the idea of dependency management ...          |
-| Canary builds | trial  | techniques             | updated  | Many projects have external code dependencies ...       |
-| Apache Kylin  | assess | platforms              | nochange | Apache Kylin is an open source analytics solution ...   |
-| JSF           | hold   | languages & frameworks | new      | We continue to see teams run into trouble using JSF ... |
+| Composer      | adopt  | tools                  | new      | TRUE      | Although the idea of dependency management ...          |
+| Canary builds | trial  | techniques             | updated  | FALSE     | Many projects have external code dependencies ...       |
+| Apache Kylin  | assess | platforms              | nochange | FALSE     | Apache Kylin is an open source analytics solution ...   |
+| JSF           | hold   | languages & frameworks | new      | TRUE      | We continue to see teams run into trouble using JSF ... |
 
 ### Sharing the sheet
 
@@ -46,11 +46,11 @@ You can enter any URL that responds CSV data into the input field on the first p
 The format is just the same as that of the Google Sheet, the example is as follows:
 
 ```
-id,name,ring,quadrant,type,description  
-1,Composer,adopt,tools,new,"Although the idea of dependency management ..."  
-2,Canary builds,trial,techniques,nochange,"Many projects have external code dependencies ..."  
-3,Apache Kylin,assess,platforms,updated,"Apache Kylin is an open source analytics solution ..."  
-4,JSF,hold,languages & frameworks,new,"We continue to see teams run into trouble using JSF ..."  
+id,name,ring,quadrant,type,highlight,description  
+1,Composer,adopt,tools,new,TRUE,"Although the idea of dependency management ..."  
+2,Canary builds,trial,techniques,nochange,TRUE,"Many projects have external code dependencies ..."  
+3,Apache Kylin,assess,platforms,updated,FALSE,"Apache Kylin is an open source analytics solution ..."  
+4,JSF,hold,languages & frameworks,new,TRUE,"We continue to see teams run into trouble using JSF ..."  
 ```
 
 ***Note:*** The CSV file parsing is using D3 library, so consult the D3 documentation for the data format details.

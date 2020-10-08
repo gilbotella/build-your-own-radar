@@ -28,9 +28,9 @@ describe('graphingRadar', function () {
       var assess = new Ring('Assess')
 
       toolsQuadrant.add([
-        new Blip('foo', adopt, true, 'this is foo'),
-        new Blip('bar', assess, true, 'this is bar'),
-        new Blip('baz', adopt, true, 'this is baz')
+        new Blip(1, 'foo', adopt, 'new', TRUE, 'this is foo'),
+        new Blip(2, 'bar', assess, 'updated', TRUE, 'this is bar'),
+        new Blip(3, 'baz', adopt, 'nochange', FALSE, 'this is baz')
       ])
 
       var table = new tr.graphing.RefTable(radar)
@@ -52,9 +52,9 @@ describe('graphingRadar', function () {
       var hold = new Ring('Hold', 2)
 
       toolsQuadrant.add([
-        new Blip('foo', adopt, true, 'this is foo'),
-        new Blip('bar', assess, true, 'this is bar'),
-        new Blip('baz', hold, true, 'this is baz')
+        new Blip(1, 'foo', adopt, 'new', TRUE, 'this is foo'),
+        new Blip(2, 'bar', assess, 'updated', TRUE, 'this is bar'),
+        new Blip(3, 'baz', adopt, 'nochange', FALSE, 'this is baz')
       ])
 
       var table = new tr.graphing.RefTable(radar)

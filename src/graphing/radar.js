@@ -261,11 +261,17 @@ const Radar = function (size, radar) {
     } else {
       /* no circle outside */
     }
+    if(blip.highlight() == 'TRUE') {
+      textclass = 'blip-text-highlighted'
+    } else {
+      textclass = 'blip-text'
+    }
     drawcircle(blip, x, y, order, group)
+
     group.append('text')
       .attr('x', x)
       .attr('y', y + 4)
-      .attr('class', 'blip-text')
+      .attr('class', textclass)
       // derive font-size from current blip width
       .style('font-size', ((blip.width * 10) / 22) + 'px')
       .attr('text-anchor', 'middle')

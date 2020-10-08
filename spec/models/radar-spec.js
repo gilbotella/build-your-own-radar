@@ -18,7 +18,7 @@ describe('Radar', function () {
   it('sets the first quadrant', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('First')
     quadrant.add([blip])
     radar = new Radar()
@@ -32,7 +32,7 @@ describe('Radar', function () {
   it('sets the second quadrant', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('Second')
     quadrant.add([blip])
     radar = new Radar()
@@ -46,7 +46,7 @@ describe('Radar', function () {
   it('sets the third quadrant', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('Third')
     quadrant.add([blip])
     radar = new Radar()
@@ -60,7 +60,7 @@ describe('Radar', function () {
   it('sets the fourth quadrant', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('Fourth')
     quadrant.add([blip])
     radar = new Radar()
@@ -74,7 +74,7 @@ describe('Radar', function () {
   it('throws an error if too many quadrants are added', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('First')
     quadrant.add([blip])
     radar = new Radar()
@@ -90,7 +90,7 @@ describe('Radar', function () {
   it('throws an error if less than 4 quadrants are added', function () {
     var quadrant, radar, blip
 
-    blip = new Blip('A', new Ring('First'))
+    blip = new Blip(1, 'A', new Ring('First'))
     quadrant = new Quadrant('First')
     quadrant.add([blip])
     radar = new Radar()
@@ -110,12 +110,12 @@ describe('Radar', function () {
       firstQuadrant = new Quadrant('First')
       secondQuadrant = new Quadrant('Second')
       firstQuadrant.add([
-        new Blip('A', firstRing),
-        new Blip('B', firstRing)
+        new Blip(1, 'A', firstRing),
+        new Blip(2, 'B', firstRing)
       ])
       secondQuadrant.add([
-        new Blip('C', firstRing),
-        new Blip('D', firstRing)
+        new Blip(3, 'C', firstRing),
+        new Blip(4, 'D', firstRing)
       ])
       radar = new Radar()
     })
@@ -163,8 +163,8 @@ describe('Radar', function () {
 
     it('returns an array for a given set of blips', function () {
       quadrant.add([
-        new Blip('A', firstRing),
-        new Blip('B', secondRing)
+        new Blip(1, 'A', firstRing),
+        new Blip(2, 'B', secondRing)
       ])
 
       radar.addQuadrant(quadrant)
@@ -177,9 +177,9 @@ describe('Radar', function () {
 
     it('has unique rings', function () {
       quadrant.add([
-        new Blip('A', firstRing),
-        new Blip('B', firstRing),
-        new Blip('C', secondRing)
+        new Blip(3, 'A', firstRing),
+        new Blip(4, 'B', firstRing),
+        new Blip(5, 'C', secondRing)
       ])
 
       radar.addQuadrant(quadrant)
@@ -192,9 +192,9 @@ describe('Radar', function () {
 
     it('has sorts by the ring order', function () {
       quadrant.add([
-        new Blip('C', secondRing),
-        new Blip('A', firstRing),
-        new Blip('B', firstRing)
+        new Blip(6, 'C', secondRing),
+        new Blip(7, 'A', firstRing),
+        new Blip(8, 'B', firstRing)
       ])
 
       radar.addQuadrant(quadrant)

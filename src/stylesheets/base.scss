@@ -240,6 +240,12 @@ body {
           fill: $white;
         }
 
+        &.blip-text-highlighted {
+          font-size: 9px;
+          font-weight: bold;
+          fill: $highlight;
+        }
+
         &.line-text {
           font-weight: bold;
           text-transform: uppercase;

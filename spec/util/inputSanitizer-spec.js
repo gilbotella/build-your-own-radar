@@ -7,14 +7,20 @@ describe('InputSanitizer', function () {
     sanitizer = new InputSanitizer()
     var description = "<b>Hello</b> <script>alert('dangerous');</script>there <h1>heading</h1>"
     rawBlip = {
+      id: '1',
       name: "Hello <script>alert('dangerous');</script>there <h1>blip</h1>",
       description: description,
       ring: '<a href="/asd">Adopt</a>',
       quadrant: '<strong>techniques and tools</strong>',
-      type: 'true<br>'
+      type: 'true<br>',
+      highlight: 'true<br>'
     }
 
     blip = sanitizer.sanitize(rawBlip)
+  })
+
+  it('strips out script tags from blip id', function () {
+    expect(blip.id).toEqual('1')
   })
 
   it('strips out script tags from blip descriptions', function () {
@@ -27,6 +33,10 @@ describe('InputSanitizer', function () {
 
   it('strips out all tags from blip status', function () {
     expect(blip.type).toEqual('true')
+  })
+
+  it('strips out all tags from blip highlight', function () {
+    expect(blip.highlight).toEqual('true')
   })
 
   it('strips out all tags from blip ring', function () {
@@ -59,13 +69,16 @@ describe('Input Santizer for Protected sheet', function () {
       'quadrant',
       'ring',
       'type',
+      'highlight',
       'description'
     ]
 
     rawBlip = [
+      '1',
       "Hello <script>alert('dangerous');</script>there <h1>blip</h1>",
       '<strong>techniques & tools</strong>',
       "<a href='/asd'>Adopt</a>",
+      'true<br>',
       'true<br>',
       "<b>Hello</b> <script>alert('dangerous');</script>there <h1>heading</h1>"
     ]
@@ -81,8 +94,12 @@ describe('Input Santizer for Protected sheet', function () {
     expect(blip.name).toEqual('Hello there blip')
   })
 
-  it('strips out all tags from blip status', function () {
+  it('strips out all tags from blip type', function () {
     expect(blip.type).toEqual('true')
+  })
+
+  it('strips out all tags from blip highlight', function () {
+    expect(blip.highlight).toEqual('true')
   })
 
   it('strips out all tags from blip ring', function () {
