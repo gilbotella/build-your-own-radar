@@ -26,7 +26,7 @@ You need to make your data public in a form we can digest.
 Create a Google Sheet. Give it at least the below column headers, and put in the content that you want:
 
 | name          | ring   | quadrant               | type     | highlight | description                                             |
-|---------------|--------|------------------------|----------|---------------------------------------------------------|
+|---------------|--------|------------------------|----------|-----------|---------------------------------------------------------|
 | Composer      | adopt  | tools                  | new      | TRUE      | Although the idea of dependency management ...          |
 | Canary builds | trial  | techniques             | updated  | FALSE     | Many projects have external code dependencies ...       |
 | Apache Kylin  | assess | platforms              | nochange | FALSE     | Apache Kylin is an open source analytics solution ...   |
