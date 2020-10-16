@@ -343,6 +343,10 @@ body {
 
             transition: max-height 0.2s ease;
 
+            h4 {
+              margin: 8px 0 0 0;
+            }
+
             &.expanded {
               transition: max-height 0.5s ease 0.2s;
               max-height: 1000px;
