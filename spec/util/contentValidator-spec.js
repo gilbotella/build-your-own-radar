@@ -23,7 +23,7 @@ describe('ContentValidator', function () {
 
   describe('verifyHeaders', function () {
     it('raises an error if one of the headers is empty', function () {
-      var columnNames = ['id', 'name', 'ring', 'quadrant', 'type', 'highlight', 'description']
+      var columnNames = ['id', 'ring', 'quadrant', 'type', 'description']
       var contentValidator = new ContentValidator(columnNames)
 
       expect(function () {
