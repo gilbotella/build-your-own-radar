@@ -251,6 +251,7 @@ const Radar = function (size, radar) {
   function drawBlipInCoordinates (blip, coordinates, order, quadrantGroup, ringList) {
     var x = coordinates[0]
     var y = coordinates[1]
+    var textclass
 
     var group = quadrantGroup.append('g').attr('class', 'blip-link').attr('id', 'blip-link-' + blip.id())
 
@@ -261,7 +262,7 @@ const Radar = function (size, radar) {
     } else {
       /* no circle outside */
     }
-    if(blip.highlight() == 'TRUE') {
+    if (blip.highlight() === 'TRUE') {
       textclass = 'blip-text-highlighted'
     } else {
       textclass = 'blip-text'
